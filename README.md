@@ -1,8 +1,8 @@
-# cuda-python
+# cuda-poetry
 
-This is a Docker image based on ismailbouajaja/cuda-python that installs Poetry on top.
+This is a Docker image based on `ismailbouajaja/cuda-python` that installs `poetry` on top.
 
-It provides a convenient environment for managing CUDA-enabled Python projects with Poetry.
+It provides a convenient environment for managing CUDA-enabled `python` projects with `poetry`.
 
 ## Available tags
 
