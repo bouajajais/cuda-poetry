@@ -119,6 +119,12 @@ def update_github(
     cwd: str = CWD,
     verbose: int = 1
     ) -> None:
+    try:
+        with open(Path(__file__).parent / "README.md", "r") as file:
+            current_readme = file.read()
+    except FileNotFoundError:
+        current_readme = ""
+    
     with open(Path(__file__).parent / "README_template.md", "r") as file:
         readme = file.read()
 
@@ -133,6 +139,11 @@ def update_github(
         LATEST_PYTHON_VERSION=latest_python_version,
         LATEST_POETRY_VERSION=latest_poetry_version
     )
+    
+    if current_readme == readme:
+        if verbose >= 1:
+            print("No changes to README.md...")
+        return
     
     with open(Path(__file__).parent / "README.md", "w") as file:
         file.write(readme)
